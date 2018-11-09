@@ -1,0 +1,3 @@
+# libmanager
+
+work in progress...
