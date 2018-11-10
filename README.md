@@ -10,3 +10,8 @@ work in progress...<br>
 -----
 <br>+Timestamp format can't be used - there are dates before 1970, and this format seems quite unfitting for publication date - to be clarified
 <br>+List of strings will be used instead of array of Strings - as this should return json - it shouldn't make difference - to be clarified
+<br>+regarding:
+    "Will return a book identified by the given ISBN number in the form of a JSON document or return
+    a 404 if the book does not exists in the data set"
+    what in case:
+    item(book) in json have both ISBN and id -> when using (/api/book/{isbn}) should this book be found by id? If yes per requirements book will be shown with only its ISBN number - to be clarified
