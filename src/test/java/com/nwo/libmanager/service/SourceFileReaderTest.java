@@ -19,12 +19,11 @@ public class SourceFileReaderTest {
     @Test
     public void Should_read_5_items() throws Exception {
         //Given
-        String bigTestJsonPath = "src/test/testResources/smallTestSource.json";
+        String smallTestJsonPath = "src/test/testResources/smallTestSource.json";
         //When
-        Books testBooks = SourceFileReader.readSource(bigTestJsonPath);
+        Books testBooks = SourceFileReader.readSource(smallTestJsonPath);
         int noOfTestItems = testBooks.getItems().size();
         //Then
         assertEquals(noOfTestItems,5);
     }
-
 }

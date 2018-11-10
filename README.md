@@ -10,6 +10,7 @@ work in progress...<br>
 -----
 <br>+Timestamp format can't be used - there are dates before 1970, and this format seems quite unfitting for publication date - to be clarified
 <br>+List of strings will be used instead of array of Strings - as this should return json - it shouldn't make difference - to be clarified
+<br>+It is more suitable to use Wrapper formats as part of json fiels can be empty - if wrapper format is used field can be set to null
 <br>+regarding:
     "Will return a book identified by the given ISBN number in the form of a JSON document or return
     a 404 if the book does not exists in the data set"
