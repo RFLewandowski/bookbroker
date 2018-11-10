@@ -15,3 +15,4 @@ work in progress...<br>
     a 404 if the book does not exists in the data set"
     what in case:
     item(book) in json have both ISBN and id -> when using (/api/book/{isbn}) should this book be found by id? If yes per requirements book will be shown with only its ISBN number - to be clarified
+<br>What about ISBN-10    
