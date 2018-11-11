@@ -51,7 +51,7 @@ public class LibraryManagerTest {//Authors are case sensitive
         List<AuthorRating> actualAuthorRatings = libraryManager.getAllAuthorsRatings();
         //Then
         assertEquals(
-                "[AuthorRating(author=Han Solo, averageRating=9.2), AuthorRating(author=Luke Skywalker, averageRating=12.7), AuthorRating(author=Chewbacca, averageRating=5.8)]",
+                "[AuthorRating(author=Luke Skywalker, averageRating=12.7), AuthorRating(author=Han Solo, averageRating=9.2), AuthorRating(author=Chewbacca, averageRating=5.8)]",
                 actualAuthorRatings.toString());
     }
 }

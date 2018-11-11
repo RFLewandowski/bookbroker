@@ -11,10 +11,7 @@ import org.springframework.util.CollectionUtils;
 import javax.annotation.PostConstruct;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -98,10 +95,11 @@ public class LibraryManager {
                     .setScale(1, RoundingMode.HALF_UP)
                     .doubleValue();
 
-
             AuthorRating authorRating = new AuthorRating(author, truncatedFinalRating);
             result.add(authorRating);
         }
+        //sort list ->ratings in descending order
+        result.sort(Comparator.comparing(AuthorRating::getAverageRating, Comparator.reverseOrder()));
         return result;
     }
 
