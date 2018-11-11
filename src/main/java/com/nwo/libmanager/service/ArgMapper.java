@@ -9,16 +9,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//dostaje z Source daną i mapuje ją na format odpowiedni dla target Book
+//gets data from source and maps to equivalent appropriate for Book
 public class ArgMapper {
+
+    private ArgMapper() {//noinstantiable utility class
+    }
 
     /**
      * @param identifiers whole identifieres object containing ISBN_13, ISBN_10 or something else or nothig at all
-     * @param recordId id of item
+     * @param recordId    id of item
      * @return if no ISBN_13 id of the record will be used
      */
     public static String mapIsbn(List<IndustryIdentifier> identifiers, String recordId) {// volumeInfo.industryIdentifiers "type": "ISBN_13"
-        //ISBN_13 - >source.getItems().get(0).getVolumeInfo().getIndustryIdentifiers().get(0).getType()
         String isbn13IfExists = getIsbn13IfExists(identifiers);
         if (CollectionUtils.isEmpty(identifiers) || StringUtils.isEmpty(isbn13IfExists)) {
             return recordId;

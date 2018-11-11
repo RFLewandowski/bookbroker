@@ -6,24 +6,26 @@ import com.nwo.libmanager.model.source.Item;
 import com.nwo.libmanager.model.source.VolumeInfo;
 import com.nwo.libmanager.model.target.Book;
 import com.nwo.libmanager.model.target.Library;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 import static com.nwo.libmanager.service.ArgMapper.*;
 
-
+@Service
 public class BooksConverter {
 
+    private BooksConverter() { //noinstantiable utility class
+    }
+
     /* Converts source object gatered from JSON to collection of target books
-     */
+         */
     public static Library convert(Books books) {
         Library library = new Library();
         List<Item> sourceBooks = books.getItems();
 
         for (Item sourceBook : sourceBooks) {
             Book bookToAdd = new Book();
-
-
 
             List<IndustryIdentifier> identifiers = sourceBook.getVolumeInfo().getIndustryIdentifiers();
             String recordId = sourceBook.getId();
