@@ -25,11 +25,11 @@ public class LibraryControllerTest {
     private MockMvc mockMvc;
     @Autowired
     private LibraryManager libraryManager;
+    private static final String SMALL_TEST_JSON_PATH = "src/test/testResources/smallTestSource.json";
 
     @Before
     public void setUp() throws Exception {
-        String smallTestJsonPath = "src/test/testResources/smallTestSource.json";
-        libraryManager.testInit(smallTestJsonPath);
+        libraryManager.testInit(SMALL_TEST_JSON_PATH);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class LibraryControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(jsonPath("$.title").value("A Hypervista of the Java Landscape"));
+                .andExpect(jsonPath("$.title").value("A Hypervista of the Java Landscapeaaa"));
     }
 
     @Test
@@ -58,6 +58,37 @@ public class LibraryControllerTest {
                 .perform(get("/api/book/ThereIsNoSuchBook"))
                 .andDo(print())
                 .andExpect(status().isNotFound())
-                .andExpect(status().reason(containsString("Book not found in Library, please check your ISBN/ID")));
+                .andExpect(status().reason(containsString("No results found")));
     }
+
+    @Test
+    public void Should_GetBooksByCategory() throws Exception {
+        this.mockMvc
+                .perform(get("/api/category/Religion/books"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(jsonPath("$.[0].title").value("The Religion of Java"));
+    }
+
+    @Test
+    public void Should_CategoriesBeCaseSensitive_When_Getting() throws Exception {
+        this.mockMvc
+                .perform(get("/api/category/ReLigiOn/books"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().string("[]"));
+    }
+
+    @Test
+    public void Should_ReturnEmpty_When_NoSuchCategory() throws Exception {
+        this.mockMvc
+                .perform(get("/api/category/NoSuchCategory/books"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().string("[]"));
+    }
+
 }

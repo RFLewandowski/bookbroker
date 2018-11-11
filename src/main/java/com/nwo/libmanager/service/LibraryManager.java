@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,5 +47,20 @@ public class LibraryManager {
     public void testInit(String testSourcePatch) {//loads Json and Converts to book
         Books sourceBooks = SourceFileReader.readSource(testSourcePatch);
         theLibrary = BooksConverter.convert(sourceBooks);
+    }
+
+    public List<Book> getBooksByCategory(String categoryName) {
+//        Book book = new Book();
+//        book.setTitle("The Religion of Java");
+//        List<Book> books = new ArrayList<>();
+//        books.add(book);
+//        return books;
+
+        return theLibrary
+                .getBooksFromLibrary()
+                .stream()
+                .filter(book -> book.getCategories().contains(categoryName))
+                .collect(Collectors.toList());
+
     }
 }

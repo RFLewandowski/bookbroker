@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class LibraryController {
@@ -27,5 +29,10 @@ public class LibraryController {
             throw new BookNotFoundException();
         }
         return foundBook;
+    }
+
+    @GetMapping(value = "/category/{categoryName}/books", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Book> getBooksByCategory(@PathVariable("categoryName") String categoryName) {
+        return libraryManager.getBooksByCategory(categoryName);
     }
 }
