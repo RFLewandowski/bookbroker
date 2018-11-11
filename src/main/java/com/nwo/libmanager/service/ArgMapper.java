@@ -18,7 +18,7 @@ public class ArgMapper {
     }
 
     /**
-     * @param identifiers whole identifieres object containing ISBN_13, ISBN_10 or something else or nothing at all
+     * @param identifiers whole identifiers object containing ISBN_13, ISBN_10 or something else or nothing at all
      * @param recordId    id of item - book in source json
      * @return if no ISBN_13 id of the record will be used
      */

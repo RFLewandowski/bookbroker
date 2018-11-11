@@ -18,7 +18,7 @@ public class BooksConverter {
     private BooksConverter() { //noinstantiable utility class
     }
 
-    /* Converts source object gatered from JSON to collection of target books
+    /* Converts source object gathered from JSON to collection of target books
          */
     public static Library convert(Books books) {
         Library library = new Library();
