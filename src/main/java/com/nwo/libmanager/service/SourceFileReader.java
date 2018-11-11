@@ -10,9 +10,7 @@ import java.io.IOException;
 
 @Service
 public class SourceFileReader {
-    public static final String SOURCE_PATH = "C:\\Users\\HP\\Desktop\\source\\source.json";
-
-    public static Books readSource(String filePath) {//should get path as arg
+    public static Books readSource(String filePath) {
         ObjectMapper objectMapper = new ObjectMapper();
         Books books = new Books();
         try {

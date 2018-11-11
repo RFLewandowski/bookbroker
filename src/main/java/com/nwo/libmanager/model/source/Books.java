@@ -23,5 +23,5 @@ public class Books {
     @JsonProperty("requestedUrl")
     private String requestedUrl;
     @JsonProperty("items")
-    private List<Item> items = new ArrayList<Item>();
+    private List<Item> items = new ArrayList<>();
 }

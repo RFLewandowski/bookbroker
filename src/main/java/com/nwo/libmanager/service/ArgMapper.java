@@ -9,15 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//gets data from source and maps to equivalent appropriate for Book
+/**
+ * gets data from source and maps to equivalent appropriate for Book
+ */
 public class ArgMapper {
 
     private ArgMapper() {//noinstantiable utility class
     }
 
     /**
-     * @param identifiers whole identifieres object containing ISBN_13, ISBN_10 or something else or nothig at all
-     * @param recordId    id of item
+     * @param identifiers whole identifieres object containing ISBN_13, ISBN_10 or something else or nothing at all
+     * @param recordId    id of item - book in source json
      * @return if no ISBN_13 id of the record will be used
      */
     public static String mapIsbn(List<IndustryIdentifier> identifiers, String recordId) {// volumeInfo.industryIdentifiers "type": "ISBN_13"
@@ -74,7 +76,7 @@ public class ArgMapper {
     }
 
     public static Integer mapPageCount(Integer sourcePageCount) {//volumeInfo.pageCount
-        return sourcePageCount; //explicit to show what is going on
+        return sourcePageCount;
     }
 
     public static String mapThumbnailUrl(String sourceThumbnailUrl) {//volumeInfo.imageLinks.thumbnail
@@ -99,7 +101,7 @@ public class ArgMapper {
     }
 
     public static Double mapAverageRating(Double sourceAverageRating) { //volumeInfo.averageRating
-        return sourceAverageRating; //explicit to show what is going on
+        return sourceAverageRating;
     }
 
     public static List<String> mapAuthors(List<String> sourceAuthors) {//volumeInfo.authors

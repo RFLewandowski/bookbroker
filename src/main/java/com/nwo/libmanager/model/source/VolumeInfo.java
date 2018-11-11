@@ -46,7 +46,7 @@ public class VolumeInfo {
     @JsonProperty("publisher")
     private String publisher;
     @JsonProperty("industryIdentifiers")
-    private List<IndustryIdentifier> industryIdentifiers = new ArrayList<IndustryIdentifier>();
+    private List<IndustryIdentifier> industryIdentifiers = new ArrayList<>();
     @JsonProperty("readingModes")
     private ReadingModes readingModes;
     @JsonProperty("printType")
@@ -68,7 +68,7 @@ public class VolumeInfo {
     @JsonProperty("canonicalVolumeLink")
     private String canonicalVolumeLink;
     @JsonProperty("authors")
-    private List<String> authors = new ArrayList<String>();
+    private List<String> authors = new ArrayList<>();
     @JsonProperty("publishedDate")
     private String publishedDate;
     @JsonProperty("description")
@@ -76,7 +76,7 @@ public class VolumeInfo {
     @JsonProperty("pageCount")
     private Integer pageCount;
     @JsonProperty("categories")
-    private List<String> categories = new ArrayList<String>();
+    private List<String> categories = new ArrayList<>();
     @JsonProperty("averageRating")
     private Double averageRating;
     @JsonProperty("ratingsCount")

@@ -6,6 +6,7 @@ import com.nwo.libmanager.model.target.Library;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -36,7 +37,7 @@ public class LibraryManagerTest {//Authors are case sensitive
     //book2 -Han Solo, Luke Skywalker 19.5
     //book3 - Han Solo, Luke Skywalker, Chewbacca 5.8
     //Expected Rating
-    //AVG Rating - Luke Skywalker - 12.65
+    //AVG Rating - Luke Skywalker - 12.65 (rounded (up) to nearest 0.1)
     //AVG Rating - Han Solo - 9.2
     //AVG Rating - Chewbacca - 5.8
 
@@ -51,5 +52,18 @@ public class LibraryManagerTest {//Authors are case sensitive
         assertEquals(
                 "[AuthorRating(author=Luke Skywalker, averageRating=12.7), AuthorRating(author=Han Solo, averageRating=9.2), AuthorRating(author=Chewbacca, averageRating=5.8)]",
                 actualAuthorRatings.toString());
+    }
+
+    @Test
+    public void Should_NotCalculateRatings_WhenThereAreNoneGiven() throws Exception {
+        //Given
+        libraryManager = new LibraryManager();
+        libraryManager.setTestLibrary(new Library());
+        //When
+        List<AuthorRating> actualAuthorRatings = libraryManager.getAllAuthorsRatings();
+        //Then
+        assertEquals(
+                new ArrayList<>(),
+                actualAuthorRatings);
     }
 }

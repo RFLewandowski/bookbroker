@@ -32,7 +32,7 @@ import java.util.List;
 })
 public class Book {
     @JsonProperty("isbn")
-    private String isbn; //default ""
+    private String isbn;
     @JsonProperty("title")
     private String title;
     @JsonProperty("subtitle")
@@ -45,7 +45,7 @@ public class Book {
     @JsonProperty("description")
     private String description;
     @JsonProperty("pageCount")
-    private Integer pageCount; //default null - to please json ignore
+    private Integer pageCount;
     @JsonProperty("thumbnailUrl")
     private String thumbnailUrl;
     @JsonProperty("language")
@@ -53,7 +53,7 @@ public class Book {
     @JsonProperty("previewLink")
     private String previewLink;
     @JsonProperty("averageRating")
-    private Double averageRating; //default null - to please json ignore
+    private Double averageRating;
     @JsonProperty("authors")
     private List<String> authors;
     @JsonProperty("categories")

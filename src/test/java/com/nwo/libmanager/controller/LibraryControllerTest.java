@@ -92,7 +92,7 @@ public class LibraryControllerTest {
     }
 
     @Test
-    public void Should_ReturnRatings() throws Exception {
+    public void Should_ReturnRatings() throws Exception { //whole logic tested in Library manager test
         this.mockMvc
                 .perform(get("/api/rating"))
                 .andDo(print())
