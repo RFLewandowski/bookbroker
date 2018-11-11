@@ -32,15 +32,13 @@ public class LibraryManagerTest {//Authors are case sensitive
         library.setBooksFromLibrary(Arrays.asList(book1, book2, book3));
     }
     //Setup
-
     //book1 - Han Solo - avg Rating 2.3
     //book2 -Han Solo, Luke Skywalker 19.5
     //book3 - Han Solo, Luke Skywalker, Chewbacca 5.8
-
+    //Expected Rating
     //AVG Rating - Luke Skywalker - 12.65
     //AVG Rating - Han Solo - 9.2
     //AVG Rating - Chewbacca - 5.8
-
 
     @Test
     public void Should_CalculateRatings() throws Exception {

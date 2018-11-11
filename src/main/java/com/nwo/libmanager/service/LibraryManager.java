@@ -5,6 +5,7 @@ import com.nwo.libmanager.model.target.AuthorRating;
 import com.nwo.libmanager.model.target.Book;
 import com.nwo.libmanager.model.target.Library;
 import com.nwo.libmanager.model.target.RatingOverBooksNo;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -17,10 +18,11 @@ import java.util.stream.Collectors;
 @Service
 public class LibraryManager {
     private Library theLibrary;//TODO state should not be in manager - to be moved to different place
+    @Value("${datasource}")
+    private String jsonPath;
 
     @PostConstruct
     public void init() {//loads Json and Converts to book
-        String jsonPath = "src/test/testResources/testSource.json";
         Books sourceBooks = SourceFileReader.readSource(jsonPath);
         theLibrary = BooksConverter.convert(sourceBooks);
     }
