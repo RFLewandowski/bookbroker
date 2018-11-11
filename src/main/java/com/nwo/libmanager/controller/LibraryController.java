@@ -1,5 +1,6 @@
 package com.nwo.libmanager.controller;
 
+import com.nwo.libmanager.model.target.AuthorRating;
 import com.nwo.libmanager.model.target.Book;
 import com.nwo.libmanager.service.LibraryManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,4 +36,10 @@ public class LibraryController {
     public List<Book> getBooksByCategory(@PathVariable("categoryName") String categoryName) {
         return libraryManager.getBooksByCategory(categoryName);
     }
+
+    @GetMapping(value = "/rating", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<AuthorRating> getAllAuthorsRatings() {
+        return libraryManager.getAllAuthorsRatings();
+    }
+
 }
