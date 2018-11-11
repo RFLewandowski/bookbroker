@@ -35,9 +35,9 @@ public class SaleInfo {
     @JsonProperty("buyLink")
     private String buyLink;
     @JsonProperty("listPrice")
-    private ListPrice listPrice;
+    private ListPrice_Sale listPrice;
     @JsonProperty("retailPrice")
-    private RetailPrice retailPrice;
+    private RetailPrice_Sale retailPrice;
     @JsonProperty("offers")
-    private List<Offer> offers = new ArrayList<Offer>();
+    private List<Offer> offers = new ArrayList<>();
 }

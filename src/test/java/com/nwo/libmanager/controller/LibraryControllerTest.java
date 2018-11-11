@@ -39,7 +39,7 @@ public class LibraryControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(jsonPath("$.title").value("A Hypervista of the Java Landscapeaaa"));
+                .andExpect(jsonPath("$.title").value("A Hypervista of the Java Landscape"));
     }
 
     @Test

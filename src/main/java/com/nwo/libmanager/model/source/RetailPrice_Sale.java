@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
         "amount",
         "currencyCode"
 })
-public class RetailPrice {
+public class RetailPrice_Sale {
     @JsonProperty("amount")
     private Double amount;
     @JsonProperty("currencyCode")

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,12 +49,6 @@ public class LibraryManager {
     }
 
     public List<Book> getBooksByCategory(String categoryName) {
-//        Book book = new Book();
-//        book.setTitle("The Religion of Java");
-//        List<Book> books = new ArrayList<>();
-//        books.add(book);
-//        return books;
-
         return theLibrary
                 .getBooksFromLibrary()
                 .stream()
