@@ -60,10 +60,6 @@ public class LibraryManager {
                 .filter(book -> !CollectionUtils.isEmpty(book.getAuthors()))
                 .collect(Collectors.toList());
 
-        System.out.println(booksWithRatingAndAuthor.toString());
-
-        //jak sprawdzić list.getAuthor.contains("")
-
         Map<String, RatingOverBooksNo> authorToSummaryRatingOverNoOfBooks = new LinkedHashMap<>();//contains value
 
 
