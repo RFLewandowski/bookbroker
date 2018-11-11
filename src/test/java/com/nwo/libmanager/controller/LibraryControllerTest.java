@@ -91,4 +91,13 @@ public class LibraryControllerTest {
                 .andExpect(content().string("[]"));
     }
 
+    @Test
+    public void Should_ReturnRatings() throws Exception {
+        this.mockMvc
+                .perform(get("/api/rating"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(content().string("[{\"author\":\"Sir Thomas Stamford Raffles\",\"averageRating\":4.5},{\"author\":\"Clifford Geertz\",\"averageRating\":4.0}]"));
+    }
 }
