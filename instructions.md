@@ -19,4 +19,4 @@ After running app below urls will be accessible:<br>
 `http://localhost:8080/category/{categoryName}/books`<br>
 `http://localhost:8080/api/rating `<br>
 
-*For more details please check* *[README](../blob/master/README.md)*
+*For more details please check* *[README](../master/README.md)*
