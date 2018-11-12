@@ -17,7 +17,7 @@ After building the app run following command to start it:<br>
 `mvn spring-boot:run`
 
 <br>**Access**<br>
-After running app below urls will be accessible:
+After running app below urls will be accessible:<br>
 `http://localhost:8080/api/book/{isbn}`<br>
 `http://localhost:8080/category/{categoryName}/books`<br>
 `http://localhost:8080/api/rating `<br>
