@@ -8,7 +8,7 @@
 <br>**Building**<br>
 Set patch to source json file location in:<br>
 `\src\main\resources\application.properties`<br>
-You need to have access to folder containg source file, and it need to be valid json file. <br>
+You need to have access to folder containing source file, and it need to be valid json file. <br>
 To build the app use following command:<br>
 `mvn clean package`<br>
 
@@ -25,7 +25,7 @@ After running app below urls will be accessible:
 
 <br>**Some design choices and asumptions**<br>
 * I've considered use of database, but decided that even h2 would be overkill for this set of requirements (although ratings turned out to be more tricky than expected and would be done easier using SQL query)
-* Four classes have unconóventional names: ListPrice_Offer, ListPrice_Sale, RetailPrice_Offer and RetailPrice_Sale it's because duplicate names of properties in json file, underscore makes visual identification easier in this particular case, much better than for example RetailPriceFromOffer
+* Four classes have unconventional names: ListPrice_Offer, ListPrice_Sale, RetailPrice_Offer and RetailPrice_Sale it's because duplicate names of properties in json file, underscore makes visual identification easier in this particular case, much better than for example RetailPriceFromOffer
 * I assume that source file will be valid Json file.
 
 
