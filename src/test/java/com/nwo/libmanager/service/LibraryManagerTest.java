@@ -27,8 +27,6 @@ public class LibraryManagerTest {//Authors are case sensitive
     @Autowired
     private LibraryManager libraryManager;
 
-    private Library library;
-
     @Before
     public void setUp() throws Exception {
         Book book1 = new Book();
@@ -40,7 +38,7 @@ public class LibraryManagerTest {//Authors are case sensitive
         Book book3 = new Book();
         book3.setAverageRating(5.8);
         book3.setAuthors(Arrays.asList("Han Solo", "Luke Skywalker", "Chewbacca"));
-        library = new Library();
+        Library library = new Library();
         library.setBooks(Arrays.asList(book1, book2, book3));
 
         dummyRepository.setTestLibrary(library);

@@ -1,5 +1,14 @@
 # libmanager
 
+
+
+
+
+
+
+
+
+
 work in progress...<br>
 <br>*I've considered database, but decided that even h2 would be overkill for this set of requirements
 <br>*Two classes have unconventional names: ListPrice_Offer and RetailPrice_Offer it's because duplicate names of properties in json file, underscore makes visual identification easier in this particular case much better than for example RetailPriceFromOffer

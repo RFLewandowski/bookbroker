@@ -13,25 +13,25 @@ import javax.annotation.PostConstruct;
 public class DummyRepository {
     @Value("${datasource}")
     private String jsonPath;
-    private Library theLibrary;
+    private Library repoLibrary;
 
     @PostConstruct
     public void init() {//loads Json as in properties and Converts to book
         Books sourceBooks = SourceFileReader.readSource(jsonPath);
-        theLibrary = BooksConverter.convert(sourceBooks);
+        repoLibrary = BooksConverter.convert(sourceBooks);
     }
 
-    public Library getTheLibrary() {
-        return theLibrary;
+    public Library getRepoLibrary() {
+        return repoLibrary;
     }
 
     public void setTestSourcePatch(String testSourcePatch) {//loads specified Json and Converts to book
         Books sourceBooks = SourceFileReader.readSource(testSourcePatch);
-        theLibrary = BooksConverter.convert(sourceBooks);
+        repoLibrary = BooksConverter.convert(sourceBooks);
     }
 
-    public void setTestLibrary(Library theLibrary) {
-        this.theLibrary = theLibrary;
+    public void setTestLibrary(Library repoLibrary) {
+        this.repoLibrary = repoLibrary;
     }
 
 }

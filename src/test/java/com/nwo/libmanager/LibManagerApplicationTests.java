@@ -10,5 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class LibManagerApplicationTests {
     @Test
     public void Should_LoadContext() {
+        //Given, When & Then
     }
 }

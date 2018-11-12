@@ -21,7 +21,7 @@ public class LibraryManager {
     }
 
     public Book getBookByIsbn(String isbn) {
-        List<Book> foundBooks = dummyRepository.getTheLibrary()
+        List<Book> foundBooks = dummyRepository.getRepoLibrary()
                 .getBooks()
                 .stream()
                 .filter(book -> isbn.equals(book.getIsbn()))
@@ -33,7 +33,7 @@ public class LibraryManager {
     }
 
     public List<Book> getBooksByCategory(String categoryName) {
-        return dummyRepository.getTheLibrary()
+        return dummyRepository.getRepoLibrary()
                 .getBooks()
                 .stream()
                 .filter(book -> book.getCategories().contains(categoryName))
@@ -41,7 +41,7 @@ public class LibraryManager {
     }
 
     public List<AuthorRating> getAllAuthorsRatings() {
-        return RatingCalculator.calculate(dummyRepository.getTheLibrary());
+        return RatingCalculator.calculate(dummyRepository.getRepoLibrary());
     }
 
 
