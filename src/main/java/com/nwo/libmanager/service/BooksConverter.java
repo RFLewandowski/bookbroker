@@ -69,7 +69,7 @@ public class BooksConverter {
             List<String> sourceCategories = sourceVolumeInfo.getCategories();
             bookToAdd.setCategories(mapCategories(sourceCategories));
 
-            library.getBooksFromLibrary().add(bookToAdd);
+            library.getBooks().add(bookToAdd);
         }
         return library;
     }

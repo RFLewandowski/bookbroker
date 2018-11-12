@@ -9,5 +9,5 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class Library {
-    List<Book> booksFromLibrary = new ArrayList<>();
+    List<Book> books = new ArrayList<>();
 }

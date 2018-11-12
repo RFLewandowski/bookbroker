@@ -29,7 +29,7 @@ public class LibraryManager {
 
     public Book getBookByIsbn(String isbn) {
         List<Book> foundBooks = theLibrary
-                .getBooksFromLibrary()
+                .getBooks()
                 .stream()
                 .filter(book -> isbn.equals(book.getIsbn()))
                 .collect(Collectors.toList());
@@ -46,7 +46,7 @@ public class LibraryManager {
 
     public List<Book> getBooksByCategory(String categoryName) {
         return theLibrary
-                .getBooksFromLibrary()
+                .getBooks()
                 .stream()
                 .filter(book -> book.getCategories().contains(categoryName))
                 .collect(Collectors.toList());
@@ -54,7 +54,7 @@ public class LibraryManager {
 
     public List<AuthorRating> getAllAuthorsRatings() {
         List<Book> booksWithRatingAndAuthor = theLibrary
-                .getBooksFromLibrary()
+                .getBooks()
                 .stream()
                 .filter(book -> null != book.getAverageRating())
                 .filter(book -> !CollectionUtils.isEmpty(book.getAuthors()))

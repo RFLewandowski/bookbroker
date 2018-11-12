@@ -30,7 +30,7 @@ public class LibraryManagerTest {//Authors are case sensitive
         book3.setAverageRating(5.8);
         book3.setAuthors(Arrays.asList("Han Solo", "Luke Skywalker", "Chewbacca"));
         library = new Library();
-        library.setBooksFromLibrary(Arrays.asList(book1, book2, book3));
+        library.setBooks(Arrays.asList(book1, book2, book3));
     }
     //Setup
     //book1 - Han Solo - avg Rating 2.3
