@@ -18,9 +18,9 @@ After building the app run following command to start it:<br>
 
 <br>**Access**<br>
 After running app below urls will be accessible:
-`http://localhost:8080/api/book/{isbn}`
-`http://localhost:8080/category/{categoryName}/books`
-`http://localhost:8080/api/rating `
+`http://localhost:8080/api/book/{isbn}`<br>
+`http://localhost:8080/category/{categoryName}/books`<br>
+`http://localhost:8080/api/rating `<br>
 
 
 <br>**Some design choices and asumptions**<br>
