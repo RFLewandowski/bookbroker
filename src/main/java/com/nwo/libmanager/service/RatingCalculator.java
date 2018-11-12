@@ -20,32 +20,40 @@ public class RatingCalculator {
     }
 
     public static List<AuthorRating> calculate(Library theLibrary) {
-        List<Book> booksWithRatingAndAuthor = fiterOutEmptyAuthorsAndRatings(theLibrary);
-        Map<String, Rating> authorToSummaryRatingOverNoOfBooks = new LinkedHashMap<>();//contains value
+        List<Book> booksWithRatingAndAuthor = filterOutEmptyAuthorsAndRatings(theLibrary);
+        Map<String, Rating> authorToRating = getAuthorToRating(booksWithRatingAndAuthor);
 
-        for (Book book : booksWithRatingAndAuthor) {//iterate over books
-            for (String author : book.getAuthors()) {//iterate over Authors
-                if (!authorToSummaryRatingOverNoOfBooks.containsKey(author)) {//add new author and current rating of his book
-                    Rating newRating = new Rating(book.getAverageRating());
-                    authorToSummaryRatingOverNoOfBooks.put(author, newRating);
-                } else {
-                    authorToSummaryRatingOverNoOfBooks
-                            .get(author)
-                            .updateRating(book.getAverageRating());
-                }
-            }
-        }
-
-        return authorToSummaryRatingOverNoOfBooks
+        return authorToRating
                 .entrySet()
                 .stream()
-                .map(RatingCalculator::mapToAuthorRating)
+                .map(RatingCalculator::entryToAuthorRating)
                 .sorted(Comparator.comparing(AuthorRating::getAverageRating, Comparator.reverseOrder()))
                 .collect(Collectors.toList());
     }
 
+    private static Map<String, Rating> getAuthorToRating(List<Book> books) {
+        Map<String, Rating> authorToRating = new LinkedHashMap<>();
+        for (Book book : books) {
+            authorToRating = updateWithBook(authorToRating, book);//authorRating passed tis way because I don't want to have any (even static) fields in this class
+        }
+        return authorToRating;
+    }
 
-    private static AuthorRating mapToAuthorRating(Map.Entry<String, Rating> entry) {
+    private static Map<String, Rating> updateWithBook(Map<String, Rating> authorToRating, Book book) {
+        for (String author : book.getAuthors()) {
+            if (authorToRating.containsKey(author)) {
+                authorToRating
+                        .get(author)
+                        .updateRating(book.getAverageRating());
+            } else {
+                Rating newRating = new Rating(book.getAverageRating());
+                authorToRating.put(author, newRating);
+            }
+        }
+        return authorToRating;
+    }
+
+    private static AuthorRating entryToAuthorRating(Map.Entry<String, Rating> entry) {
         String author = entry.getKey();
         Double rating = entry.getValue().getRating();
         return new AuthorRating(author, setResultScale(rating));
@@ -57,7 +65,7 @@ public class RatingCalculator {
                 .doubleValue();
     }
 
-    private static List<Book> fiterOutEmptyAuthorsAndRatings(Library library) {
+    private static List<Book> filterOutEmptyAuthorsAndRatings(Library library) {
         return library
                 .getBooks()
                 .stream()
