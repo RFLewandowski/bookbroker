@@ -1,28 +1,38 @@
-# libmanager
+## libmanager
 
 
+*All below commands should be executed from root directory of project:<br>*
+` e.g.`<br>`C:/Users/HP/IdeaProjects/libmanager`
 
 
+<br>**Building**<br>
+Set patch to source json file location in:<br>
+`\src\main\resources\application.properties`<br>
+You need to have access to folder containg source file, and it need to be valid json file. <br>
+To build the app use following command:<br>
+`mvn clean package`<br>
+
+<br>**Running**<br>
+After building the app run following command to start it:<br>
+`mvn spring-boot:run`
+
+<br>**Access**<br>
+After running app below urls will be accessible:
+`http://localhost:8080/api/book/{isbn}`
+`http://localhost:8080/category/{categoryName}/books`
+`http://localhost:8080/api/rating `
 
 
+<br>**Some design choices and asumptions**<br>
+* I've considered use of database, but decided that even h2 would be overkill for this set of requirements (although ratings turned out to be more tricky than expected and would be done easier using SQL query)
+* Four classes have unconóventional names: ListPrice_Offer, ListPrice_Sale, RetailPrice_Offer and RetailPrice_Sale it's because duplicate names of properties in json file, underscore makes visual identification easier in this particular case, much better than for example RetailPriceFromOffer
+* I assume that source file will be valid Json file.
 
 
-
-
-work in progress...<br>
-<br>*I've considered database, but decided that even h2 would be overkill for this set of requirements
-<br>*Two classes have unconventional names: ListPrice_Offer and RetailPrice_Offer it's because duplicate names of properties in json file, underscore makes visual identification easier in this particular case much better than for example RetailPriceFromOffer
-<br>*servlet server->embeded tomcat
-<br>*lombok
-<br>*spring boot
-<br>*I assume that source file will be valid Json file
------
-<br>+Timestamp format can't be used - there are dates before 1970, and this format seems quite unfitting for publication date - to be clarified
-<br>+List of strings will be used instead of array of Strings - as this should return json - it shouldn't make difference - to be clarified
-<br>+It is more suitable to use Wrapper formats as part of json fiels can be empty - if wrapper format is used field can be set to null
-<br>+regarding:
-    "Will return a book identified by the given ISBN number in the form of a JSON document or return
-    a 404 if the book does not exists in the data set"
-    what in case:
-    item(book) in json have both ISBN and id -> when using (/api/book/{isbn}) should this book be found by id? If yes per requirements book will be shown with only its ISBN number - to be clarified
-<br>What about ISBN-10    
+<br>**Technologies**<br>
+* Tomcat - embedded in Spring 
+* Lombok
+* Spring boot
+* Jackson
+* Junit + MockMvc
+* Jsonschema2pojo (to generate source json model)
