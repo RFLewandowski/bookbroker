@@ -8,7 +8,10 @@ import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.*;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class RatingCalculator {
@@ -33,23 +36,25 @@ public class RatingCalculator {
             }
         }
 
-        //mapper - from map to list of authors
-        List<AuthorRating> result = new ArrayList<>();
-        for (Map.Entry<String, Rating> authorToSummaryRatingOverNoOfBook
-                : authorToSummaryRatingOverNoOfBooks.entrySet()) {
-            String author = authorToSummaryRatingOverNoOfBook.getKey();
-            Double finalRating = authorToSummaryRatingOverNoOfBook.getValue().getRating();
+        return authorToSummaryRatingOverNoOfBooks
+                .entrySet()
+                .stream()
+                .map(RatingCalculator::mapToAuthorRating)
+                .sorted(Comparator.comparing(AuthorRating::getAverageRating, Comparator.reverseOrder()))
+                .collect(Collectors.toList());
+    }
 
-            Double truncatedFinalRating = BigDecimal.valueOf(finalRating) //set scale
-                    .setScale(1, RoundingMode.HALF_UP)
-                    .doubleValue();
 
-            AuthorRating authorRating = new AuthorRating(author, truncatedFinalRating);
-            result.add(authorRating);
-        }
-        //sort list ->ratings in descending order
-        result.sort(Comparator.comparing(AuthorRating::getAverageRating, Comparator.reverseOrder()));
-        return result;
+    private static AuthorRating mapToAuthorRating(Map.Entry<String, Rating> entry) {
+        String author = entry.getKey();
+        Double rating = entry.getValue().getRating();
+        return new AuthorRating(author, setResultScale(rating));
+    }
+
+    private static Double setResultScale(Double rating) {
+        return BigDecimal.valueOf(rating)
+                .setScale(1, RoundingMode.HALF_UP)
+                .doubleValue();
     }
 
     private static List<Book> fiterOutEmptyAuthorsAndRatings(Library library) {
