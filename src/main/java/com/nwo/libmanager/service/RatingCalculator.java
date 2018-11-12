@@ -3,7 +3,6 @@ package com.nwo.libmanager.service;
 import com.nwo.libmanager.model.target.AuthorRating;
 import com.nwo.libmanager.model.target.Book;
 import com.nwo.libmanager.model.target.Library;
-import com.nwo.libmanager.model.target.Rating;
 import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;

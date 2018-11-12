@@ -6,13 +6,11 @@ import com.nwo.libmanager.model.source.Item;
 import com.nwo.libmanager.model.source.VolumeInfo;
 import com.nwo.libmanager.model.target.Book;
 import com.nwo.libmanager.model.target.Library;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 import static com.nwo.libmanager.service.ArgMapper.*;
 
-@Service
 public class BooksConverter {
 
     private BooksConverter() { //noinstantiable utility class

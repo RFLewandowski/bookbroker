@@ -1,4 +1,4 @@
-package com.nwo.libmanager.model.target;
+package com.nwo.libmanager.service;
 
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

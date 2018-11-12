@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * gets data from source and maps to equivalent appropriate for Book
+ * Gets data from source and maps to equivalent appropriate for Book
  */
 public class ArgMapper {
 
@@ -39,72 +39,104 @@ public class ArgMapper {
                         .collect(Collectors.joining(","));
     }
 
-
-    public static String mapTitle(String sourceTitle) {//volumeInfo.title
+    /**
+     * maps volumeInfo.title
+     */
+    public static String mapTitle(String sourceTitle) {
         if (StringUtils.isEmpty(sourceTitle)) {
             return "";
         }
         return sourceTitle;
     }
 
-    public static String mapSubtitle(String sourceSubtitle) {//volumeInfo.subtitle
+    /**
+     * maps volumeInfo.subtitle
+     */
+    public static String mapSubtitle(String sourceSubtitle) {
         if (StringUtils.isEmpty(sourceSubtitle)) {
             return "";
         }
         return sourceSubtitle;
     }
 
-    public static String mapPublisher(String sourcePublisher) { //volumeInfo.publisher
+    /**
+     * maps volumeInfo.publisher
+     */
+    public static String mapPublisher(String sourcePublisher) {
         if (StringUtils.isEmpty(sourcePublisher)) {
             return "";
         }
         return sourcePublisher;
     }
 
-    public static String mapPublishedDate(String sourceDate) {//volumeInfo.publishedDate - string for now probably will be used Date or LoacalDate
+    /**
+     * maps volumeInfo.publishedDate - string for now probably will be used Date or LoacalDate
+     */
+    public static String mapPublishedDate(String sourceDate) {
         if (StringUtils.isEmpty(sourceDate)) {
             return "";
         }
         return sourceDate;
     }
 
-    public static String mapDescription(String sourceDescription) {//volumeInfo.description
+    /**
+     * maps volumeInfo.description
+     */
+    public static String mapDescription(String sourceDescription) {
         if (StringUtils.isEmpty(sourceDescription)) {
             return "";
         }
         return sourceDescription;
     }
 
-    public static Integer mapPageCount(Integer sourcePageCount) {//volumeInfo.pageCount
+    /**
+     * maps volumeInfo.pageCount
+     */
+    public static Integer mapPageCount(Integer sourcePageCount) {
         return sourcePageCount;
     }
 
-    public static String mapThumbnailUrl(String sourceThumbnailUrl) {//volumeInfo.imageLinks.thumbnail
+    /**
+     * maps volumeInfo.imageLinks.thumbnail
+     */
+    public static String mapThumbnailUrl(String sourceThumbnailUrl) {
         if (StringUtils.isEmpty(sourceThumbnailUrl)) {
             return "";
         }
         return sourceThumbnailUrl;
     }
 
-    public static String mapLanguage(String sourceLanguage) { //volumeInfo.language
+    /**
+     * maps volumeInfo.language
+     */
+    public static String mapLanguage(String sourceLanguage) {
         if (StringUtils.isEmpty(sourceLanguage)) {
             return "";
         }
         return sourceLanguage;
     }
 
-    public static String mapPreviewLink(String sourcePreviewLink) {//volumeInfo.previewLink
+    /**
+     * maps volumeInfo.previewLink
+     */
+    public static String mapPreviewLink(String sourcePreviewLink) {
         if (StringUtils.isEmpty(sourcePreviewLink)) {
             return "";
         }
         return sourcePreviewLink;
     }
 
-    public static Double mapAverageRating(Double sourceAverageRating) { //volumeInfo.averageRating
+    /**
+     * maps volumeInfo.averageRating
+     */
+    public static Double mapAverageRating(Double sourceAverageRating) {
         return sourceAverageRating;
     }
 
-    public static List<String> mapAuthors(List<String> sourceAuthors) {//volumeInfo.authors
+    /**
+     * maps volumeInfo.authors
+     */
+    public static List<String> mapAuthors(List<String> sourceAuthors) {
 
         if (CollectionUtils.isEmpty(sourceAuthors)) {
             return new ArrayList<>();
@@ -112,7 +144,10 @@ public class ArgMapper {
         return sourceAuthors;
     }
 
-    public static List<String> mapCategories(List<String> sourceCategories) {//volumeInfo.categories
+    /**
+     * maps volumeInfo.categories
+     */
+    public static List<String> mapCategories(List<String> sourceCategories) {
         if (CollectionUtils.isEmpty(sourceCategories)) {
             return new ArrayList<>();
         }
