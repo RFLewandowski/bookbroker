@@ -25,6 +25,6 @@ public class Rating {
     }
 
     public Double getRating() {
-        return sumOfRatings / numberOfBooks;
+        return this.sumOfRatings / this.numberOfBooks;
     }
 }

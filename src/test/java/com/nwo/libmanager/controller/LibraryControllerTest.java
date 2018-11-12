@@ -1,6 +1,6 @@
 package com.nwo.libmanager.controller;
 
-import com.nwo.libmanager.service.LibraryManager;
+import com.nwo.libmanager.repository.DummyRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,12 +24,12 @@ public class LibraryControllerTest {
     @Autowired
     private MockMvc mockMvc;
     @Autowired
-    private LibraryManager libraryManager;
+    private DummyRepository dummyRepository;
     private static final String SMALL_TEST_JSON_PATH = "src/test/testResources/smallTestSource.json";
 
     @Before
     public void setUp() throws Exception {
-        libraryManager.testInit(SMALL_TEST_JSON_PATH);
+        dummyRepository.setTestSourcePatch(SMALL_TEST_JSON_PATH);
     }
 
     @Test

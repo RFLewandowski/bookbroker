@@ -3,8 +3,13 @@ package com.nwo.libmanager.service;
 import com.nwo.libmanager.model.target.AuthorRating;
 import com.nwo.libmanager.model.target.Book;
 import com.nwo.libmanager.model.target.Library;
+import com.nwo.libmanager.repository.DummyRepository;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,7 +18,13 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class LibraryManagerTest {//Authors are case sensitive
+
+    @Autowired
+    DummyRepository dummyRepository;
+    @Autowired
     private LibraryManager libraryManager;
 
     private Library library;
@@ -31,6 +42,8 @@ public class LibraryManagerTest {//Authors are case sensitive
         book3.setAuthors(Arrays.asList("Han Solo", "Luke Skywalker", "Chewbacca"));
         library = new Library();
         library.setBooks(Arrays.asList(book1, book2, book3));
+
+        dummyRepository.setTestLibrary(library);
     }
     //Setup
     //book1 - Han Solo - avg Rating 2.3
@@ -44,8 +57,7 @@ public class LibraryManagerTest {//Authors are case sensitive
     @Test
     public void Should_CalculateRatings() throws Exception {
         //Given
-        libraryManager = new LibraryManager();
-        libraryManager.setTestLibrary(library);
+        //
         //When
         List<AuthorRating> actualAuthorRatings = libraryManager.getAllAuthorsRatings();
         //Then
@@ -57,13 +69,10 @@ public class LibraryManagerTest {//Authors are case sensitive
     @Test
     public void Should_NotCalculateRatings_WhenThereAreNoneGiven() throws Exception {
         //Given
-        libraryManager = new LibraryManager();
-        libraryManager.setTestLibrary(new Library());
+        dummyRepository.setTestLibrary(new Library());
         //When
         List<AuthorRating> actualAuthorRatings = libraryManager.getAllAuthorsRatings();
         //Then
-        assertEquals(
-                new ArrayList<>(),
-                actualAuthorRatings);
+        assertEquals(new ArrayList<>(), actualAuthorRatings);
     }
 }

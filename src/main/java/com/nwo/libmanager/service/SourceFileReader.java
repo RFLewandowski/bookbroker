@@ -8,6 +8,10 @@ import java.io.File;
 import java.io.IOException;
 
 public class SourceFileReader {
+
+    private SourceFileReader() { //noinstantiable utility class
+    }
+
     public static Books readSource(String filePath) {
         ObjectMapper objectMapper = new ObjectMapper();
         Books books = new Books();

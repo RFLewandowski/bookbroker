@@ -1,36 +1,27 @@
 package com.nwo.libmanager.service;
 
-import com.nwo.libmanager.model.source.Books;
 import com.nwo.libmanager.model.target.AuthorRating;
 import com.nwo.libmanager.model.target.Book;
-import com.nwo.libmanager.model.target.Library;
-import org.springframework.beans.factory.annotation.Value;
+import com.nwo.libmanager.repository.DummyRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class LibraryManager {
-    private Library theLibrary;//TODO state should not be in manager - to be moved to different place
-    @Value("${datasource}")
-    private String jsonPath;
 
-    @PostConstruct
-    public void init() {//loads Json as in properties and Converts to book
-        Books sourceBooks = SourceFileReader.readSource(jsonPath);
-        theLibrary = BooksConverter.convert(sourceBooks);
-    }
+    private final DummyRepository dummyRepository;
 
-    public void testInit(String testSourcePatch) {//loads specified Json and Converts to book
-        Books sourceBooks = SourceFileReader.readSource(testSourcePatch);
-        theLibrary = BooksConverter.convert(sourceBooks);
+    @Autowired
+    public LibraryManager(DummyRepository dummyRepository) {
+        this.dummyRepository = dummyRepository;
     }
 
     public Book getBookByIsbn(String isbn) {
-        List<Book> foundBooks = theLibrary
+        List<Book> foundBooks = dummyRepository.getTheLibrary()
                 .getBooks()
                 .stream()
                 .filter(book -> isbn.equals(book.getIsbn()))
@@ -38,11 +29,11 @@ public class LibraryManager {
         if (CollectionUtils.isEmpty(foundBooks)) {
             return new Book();
         }
-        return foundBooks.get(0);//assuming no more than one book will have specified id
+        return foundBooks.get(0);//assuming no more than one book will have specified ISBN/id
     }
 
     public List<Book> getBooksByCategory(String categoryName) {
-        return theLibrary
+        return dummyRepository.getTheLibrary()
                 .getBooks()
                 .stream()
                 .filter(book -> book.getCategories().contains(categoryName))
@@ -50,11 +41,8 @@ public class LibraryManager {
     }
 
     public List<AuthorRating> getAllAuthorsRatings() {
-        return RatingCalculator.calculate(theLibrary);
+        return RatingCalculator.calculate(dummyRepository.getTheLibrary());
     }
 
 
-    public void setTestLibrary(Library theLibrary) {
-        this.theLibrary = theLibrary;
-    }
 }

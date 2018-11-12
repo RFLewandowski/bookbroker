@@ -33,7 +33,7 @@ public class RatingCalculator {
     private static Map<String, Rating> getAuthorToRating(List<Book> books) {
         Map<String, Rating> authorToRating = new LinkedHashMap<>();
         for (Book book : books) {
-            authorToRating = updateWithBook(authorToRating, book);//authorRating passed tis way because I don't want to have any (even static) fields in this class
+            authorToRating = updateWithBook(authorToRating, book);//authorRating passed this way because I don't want to have any (even static) fields in this class
         }
         return authorToRating;
     }

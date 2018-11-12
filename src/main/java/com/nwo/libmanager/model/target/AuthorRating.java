@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
         "author",
         "averageRating"
 })
-public class AuthorRating { //additional class rating calculator or method in manager?
+public class AuthorRating {
     @JsonProperty("author")
     private String author;
     @JsonProperty("averageRating")

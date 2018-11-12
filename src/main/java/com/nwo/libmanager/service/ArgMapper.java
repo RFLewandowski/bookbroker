@@ -18,11 +18,13 @@ public class ArgMapper {
     }
 
     /**
+     * maps volumeInfo.industryIdentifiers "type": "ISBN_13"
+     *
      * @param identifiers whole identifiers object containing ISBN_13, ISBN_10 or something else or nothing at all
      * @param recordId    id of item - book in source json
      * @return if no ISBN_13 id of the record will be used
      */
-    public static String mapIsbn(List<IndustryIdentifier> identifiers, String recordId) {// volumeInfo.industryIdentifiers "type": "ISBN_13"
+    public static String mapIsbn(List<IndustryIdentifier> identifiers, String recordId) {
         String isbn13IfExists = getIsbn13IfExists(identifiers);
         if (CollectionUtils.isEmpty(identifiers) || StringUtils.isEmpty(isbn13IfExists)) {
             return recordId;
