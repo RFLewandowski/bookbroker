@@ -1,18 +1,26 @@
 package com.nwo.libmanager.model.target;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-@Data
+@ToString
+@EqualsAndHashCode
+
 public class RatingOverBooksNo {
-    Double sumRating;
-    Integer noOfBooks;
+    private Double sumRating;
+    private Integer noOfBooks;
 
-    public void setForNewAuthor(Double rating) {
-        this.sumRating = rating;
+    public RatingOverBooksNo(Double sumRating) {
         noOfBooks = 1;
+        this.sumRating = sumRating;
     }
 
-    public Double getFinalRating() {
+    public void updateRating(Double sumRating) {
+        noOfBooks++;
+        this.sumRating += sumRating;
+    }
+
+    public Double getRating() {
         return sumRating / noOfBooks;
     }
 }
