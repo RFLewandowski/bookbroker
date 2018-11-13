@@ -25,7 +25,7 @@ public class LibraryControllerTest {
     private MockMvc mockMvc;
     @Autowired
     private DummyRepository dummyRepository;
-    private static final String SMALL_TEST_JSON_PATH = "src/test/testResources/smallTestSource.json";
+    private static final String SMALL_TEST_JSON_PATH = "src/test/resources/smallTestSource.json";
 
     @Before
     public void setUp() throws Exception {

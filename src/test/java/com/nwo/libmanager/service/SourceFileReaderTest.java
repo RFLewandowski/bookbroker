@@ -6,8 +6,8 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class SourceFileReaderTest {
-    private static final String SMALL_TEST_JSON_PATH = "src/test/testResources/smallTestSource.json";
-    private static final String BIG_TEST_JSON_PATH = "src/test/testResources/testSource.json";
+    private static final String SMALL_TEST_JSON_PATH = "src/test/resources/smallTestSource.json";
+    private static final String BIG_TEST_JSON_PATH = "src/test/resources/testSource.json";
 
     @Test
     public void Should_read_40_items() throws Exception {
