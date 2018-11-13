@@ -10,7 +10,7 @@ jdk 8<br>
 
 <br>**Building**<br>
 *All below commands should be executed from root directory of project:<br>*
-` e.g.`<br>`C:/Users/HP/IdeaProjects/libmanager`
+` e.g.`<br>`C:\Users\HP\IdeaProjects\libmanager`
 <br>
 <br>
 Set path to source json file location in:<br>
