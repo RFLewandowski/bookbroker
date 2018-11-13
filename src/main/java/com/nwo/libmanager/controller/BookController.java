@@ -1,6 +1,5 @@
 package com.nwo.libmanager.controller;
 
-import com.nwo.libmanager.model.target.AuthorRating;
 import com.nwo.libmanager.model.target.Book;
 import com.nwo.libmanager.service.LibraryManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +24,7 @@ public class BookController {
 
     @GetMapping(value = "/book/{isbn}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Book getBookByIsbn(@PathVariable("isbn") String isbn) throws BookNotFoundException {
-        Book foundBook = libraryManager.getBookByIsbn(isbn);
-        if (foundBook.equals(new Book())) {
-            throw new BookNotFoundException();
-        }
-        return foundBook;
+        return libraryManager.getBookByIsbn(isbn).orElseThrow(BookNotFoundException::new);
     }
 
     @GetMapping(value = "/category/{categoryName}/books", produces = MediaType.APPLICATION_JSON_VALUE)
