@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
         "amountInMicros",
         "currencyCode"
 })
-public class RetailPrice_Offer {
+public class RetailPriceWithAmountInMicros {
 
     @JsonProperty("amountInMicros")
     private Double amountInMicros;

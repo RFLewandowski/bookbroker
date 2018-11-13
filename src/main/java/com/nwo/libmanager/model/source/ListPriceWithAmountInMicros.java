@@ -13,13 +13,13 @@ import lombok.NoArgsConstructor;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
-        "amount",
+        "amountInMicros",
         "currencyCode"
 })
-public class ListPrice_Sale {
+public class ListPriceWithAmountInMicros {
 
-    @JsonProperty("amount")
-    private Double amount;
+    @JsonProperty("amountInMicros")
+    private Double amountInMicros;
     @JsonProperty("currencyCode")
     private String currencyCode;
 }

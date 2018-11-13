@@ -22,7 +22,7 @@ public class Offer {
     @JsonProperty("finskyOfferType")
     private Integer finskyOfferType;
     @JsonProperty("listPrice")
-    private ListPrice_Offer listPrice;
+    private ListPriceWithAmountInMicros listPrice;
     @JsonProperty("retailPrice")
-    private RetailPrice_Offer retailPrice;
+    private RetailPriceWithAmountInMicros retailPrice;
 }
