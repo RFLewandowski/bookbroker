@@ -6,7 +6,9 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -34,7 +36,9 @@ public class ArgMapper {
 
     private static String getIsbn13IfExists(List<IndustryIdentifier> identifiers) {
         return
-                identifiers
+                Optional
+                        .ofNullable(identifiers)
+                        .orElseGet(Collections::emptyList)
                         .stream()
                         .filter(industryIdentifier -> industryIdentifier.getType().equals("ISBN_13"))
                         .map(IndustryIdentifier::getIdentifier)
@@ -72,7 +76,10 @@ public class ArgMapper {
     }
 
     /**
-     * maps volumeInfo.publishedDate - string for now probably will be used Date or LoacalDate
+     * maps volumeInfo.publishedDate
+     * Unix timestamp can't be used - there are dates before 1970
+     * , and this format seems quit unfitting for publication date.
+     * String will be used instead due to various precisions and formats of dates in source file.
      */
     public static String mapPublishedDate(String sourceDate) {
         if (StringUtils.isEmpty(sourceDate)) {
@@ -139,7 +146,6 @@ public class ArgMapper {
      * maps volumeInfo.authors
      */
     public static List<String> mapAuthors(List<String> sourceAuthors) {
-
         if (CollectionUtils.isEmpty(sourceAuthors)) {
             return new ArrayList<>();
         }

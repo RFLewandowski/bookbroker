@@ -39,7 +39,7 @@ public class Book {
     private String subtitle;
     @JsonProperty("publisher")
     private String publisher;
-    //unix timestamp can't be used - as dates are not used for processing will be String for now
+    //unix timestamp can't be used - as dates are not used for processing String will used for now
     @JsonProperty("publishedDate")
     private String publishedDate;
     @JsonProperty("description")
