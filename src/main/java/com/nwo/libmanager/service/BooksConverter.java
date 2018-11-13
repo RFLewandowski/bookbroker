@@ -13,7 +13,7 @@ import static com.nwo.libmanager.service.ArgMapper.*;
 
 public class BooksConverter {
 
-    private BooksConverter() { //noinstantiable utility class
+    private BooksConverter() {
     }
 
     /**

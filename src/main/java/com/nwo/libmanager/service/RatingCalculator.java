@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class RatingCalculator {
 
-    private RatingCalculator() {//noinstantiable utility class
+    private RatingCalculator() {
     }
 
     public static List<AuthorRating> calculate(Library theLibrary) {

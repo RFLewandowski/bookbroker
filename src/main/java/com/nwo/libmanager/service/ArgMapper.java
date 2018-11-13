@@ -2,6 +2,7 @@ package com.nwo.libmanager.service;
 
 
 import com.nwo.libmanager.model.source.IndustryIdentifier;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
@@ -16,7 +17,7 @@ import java.util.stream.Collectors;
  */
 public class ArgMapper {
 
-    private ArgMapper() {//noinstantiable utility class
+    private ArgMapper() {
     }
 
     /**
@@ -50,7 +51,7 @@ public class ArgMapper {
      */
     public static String mapTitle(String sourceTitle) {
         if (StringUtils.isEmpty(sourceTitle)) {
-            return "";
+            return Strings.EMPTY;
         }
         return sourceTitle;
     }
@@ -60,7 +61,7 @@ public class ArgMapper {
      */
     public static String mapSubtitle(String sourceSubtitle) {
         if (StringUtils.isEmpty(sourceSubtitle)) {
-            return "";
+            return Strings.EMPTY;
         }
         return sourceSubtitle;
     }
@@ -70,7 +71,7 @@ public class ArgMapper {
      */
     public static String mapPublisher(String sourcePublisher) {
         if (StringUtils.isEmpty(sourcePublisher)) {
-            return "";
+            return Strings.EMPTY;
         }
         return sourcePublisher;
     }
@@ -83,7 +84,7 @@ public class ArgMapper {
      */
     public static String mapPublishedDate(String sourceDate) {
         if (StringUtils.isEmpty(sourceDate)) {
-            return "";
+            return Strings.EMPTY;
         }
         return sourceDate;
     }
@@ -93,7 +94,7 @@ public class ArgMapper {
      */
     public static String mapDescription(String sourceDescription) {
         if (StringUtils.isEmpty(sourceDescription)) {
-            return "";
+            return Strings.EMPTY;
         }
         return sourceDescription;
     }
@@ -110,7 +111,7 @@ public class ArgMapper {
      */
     public static String mapThumbnailUrl(String sourceThumbnailUrl) {
         if (StringUtils.isEmpty(sourceThumbnailUrl)) {
-            return "";
+            return Strings.EMPTY;
         }
         return sourceThumbnailUrl;
     }
@@ -120,7 +121,7 @@ public class ArgMapper {
      */
     public static String mapLanguage(String sourceLanguage) {
         if (StringUtils.isEmpty(sourceLanguage)) {
-            return "";
+            return Strings.EMPTY;
         }
         return sourceLanguage;
     }
@@ -130,7 +131,7 @@ public class ArgMapper {
      */
     public static String mapPreviewLink(String sourcePreviewLink) {
         if (StringUtils.isEmpty(sourcePreviewLink)) {
-            return "";
+            return Strings.EMPTY;
         }
         return sourcePreviewLink;
     }

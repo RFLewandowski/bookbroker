@@ -27,16 +27,6 @@ public class LibraryManager {
                 .stream()
                 .filter(book -> isbn.equals(book.getIsbn()))
                 .findFirst();
-
-
-//                .getBooks()
-//                .stream()
-//                .filter(book -> isbn.equals(book.getIsbn()))
-//                .collect(Collectors.toList());
-//        if (CollectionUtils.isEmpty(foundBooks)) {
-//            return new Book();
-//        }
-//        return foundBooks.get(0);//assuming no more than one book will have specified ISBN/id
     }
 
     public List<Book> getBooksByCategory(String categoryName) {

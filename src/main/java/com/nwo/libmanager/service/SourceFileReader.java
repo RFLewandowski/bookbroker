@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class SourceFileReader {
 
-    private SourceFileReader() { //noinstantiable utility class
+    private SourceFileReader() {
     }
 
     public static Books readSource(String filePath) {
