@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
-public class LibraryControllerTest {
+public class BookControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -89,15 +89,5 @@ public class LibraryControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(content().string("[]"));
-    }
-
-    @Test
-    public void Should_ReturnRatings() throws Exception { //whole logic tested in Library manager test
-        this.mockMvc
-                .perform(get("/api/rating"))
-                .andDo(print())
-                .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(content().string("[{\"author\":\"Sir Thomas Stamford Raffles\",\"averageRating\":4.5},{\"author\":\"Clifford Geertz\",\"averageRating\":4.0}]"));
     }
 }

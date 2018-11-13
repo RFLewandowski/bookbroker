@@ -14,12 +14,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class LibraryController {
+public class BookController {
 
     private final LibraryManager libraryManager;
 
     @Autowired
-    public LibraryController(LibraryManager libraryManager) {
+    public BookController(LibraryManager libraryManager) {
         this.libraryManager = libraryManager;
     }
 
@@ -36,10 +36,4 @@ public class LibraryController {
     public List<Book> getBooksByCategory(@PathVariable("categoryName") String categoryName) {
         return libraryManager.getBooksByCategory(categoryName);
     }
-
-    @GetMapping(value = "/rating", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<AuthorRating> getAllAuthorsRatings() {
-        return libraryManager.getAllAuthorsRatings();
-    }
-
 }
