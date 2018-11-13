@@ -1,5 +1,6 @@
-package com.nwo.libmanager.service;
+package com.nwo.libmanager.bookservice;
 
+import com.nwo.libmanager.authorservice.AuthorService;
 import com.nwo.libmanager.model.target.AuthorRating;
 import com.nwo.libmanager.model.target.Book;
 import com.nwo.libmanager.model.target.Library;
@@ -20,12 +21,12 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-public class LibraryManagerTest {//Authors are case sensitive
+public class AuthorServiceTest {//Authors are case sensitive
 
     @Autowired
     DummyRepository dummyRepository;
     @Autowired
-    private LibraryManager libraryManager;
+    private AuthorService authorService;
 
     @Before
     public void setUp() throws Exception {
@@ -57,7 +58,7 @@ public class LibraryManagerTest {//Authors are case sensitive
         //Given
         //
         //When
-        List<AuthorRating> actualAuthorRatings = libraryManager.getAllAuthorsRatings();
+        List<AuthorRating> actualAuthorRatings = authorService.getAllAuthorsRatings();
         //Then
         assertEquals(
                 "[AuthorRating(author=Luke Skywalker, averageRating=12.7), AuthorRating(author=Han Solo, averageRating=9.2), AuthorRating(author=Chewbacca, averageRating=5.8)]",
@@ -69,7 +70,7 @@ public class LibraryManagerTest {//Authors are case sensitive
         //Given
         dummyRepository.setTestLibrary(new Library());
         //When
-        List<AuthorRating> actualAuthorRatings = libraryManager.getAllAuthorsRatings();
+        List<AuthorRating> actualAuthorRatings = authorService.getAllAuthorsRatings();
         //Then
         assertEquals(new ArrayList<>(), actualAuthorRatings);
     }

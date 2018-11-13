@@ -1,4 +1,4 @@
-package com.nwo.libmanager.service;
+package com.nwo.libmanager.bookservice;
 
 import com.nwo.libmanager.model.source.IndustryIdentifier;
 import org.junit.Test;

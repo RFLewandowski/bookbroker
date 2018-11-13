@@ -1,7 +1,7 @@
 package com.nwo.libmanager.controller;
 
+import com.nwo.libmanager.authorservice.AuthorService;
 import com.nwo.libmanager.model.target.AuthorRating;
-import com.nwo.libmanager.service.LibraryManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,15 +14,15 @@ import java.util.List;
 @RequestMapping("/api")
 public class AuthorController {
 
-    private final LibraryManager libraryManager;
+    private final AuthorService authorService;
 
     @Autowired
-    public AuthorController(LibraryManager libraryManager) {
-        this.libraryManager = libraryManager;
+    public AuthorController(AuthorService authorService) {
+        this.authorService = authorService;
     }
 
     @GetMapping(value = "/rating", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<AuthorRating> getAllAuthorsRatings() {
-        return libraryManager.getAllAuthorsRatings();
+        return authorService.getAllAuthorsRatings();
     }
 }

@@ -1,6 +1,5 @@
-package com.nwo.libmanager.service;
+package com.nwo.libmanager.bookservice;
 
-import com.nwo.libmanager.model.target.AuthorRating;
 import com.nwo.libmanager.model.target.Book;
 import com.nwo.libmanager.repository.DummyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +10,12 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class LibraryManager {
+public class BookService {
 
     private final DummyRepository dummyRepository;
 
     @Autowired
-    public LibraryManager(DummyRepository dummyRepository) {
+    public BookService(DummyRepository dummyRepository) {
         this.dummyRepository = dummyRepository;
     }
 
@@ -36,10 +35,4 @@ public class LibraryManager {
                 .filter(book -> book.getCategories().contains(categoryName))
                 .collect(Collectors.toList());
     }
-
-    public List<AuthorRating> getAllAuthorsRatings() {
-        return RatingCalculator.calculate(dummyRepository.getRepoLibrary());
-    }
-
-
 }

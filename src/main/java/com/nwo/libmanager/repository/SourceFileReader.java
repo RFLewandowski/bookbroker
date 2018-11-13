@@ -1,4 +1,4 @@
-package com.nwo.libmanager.service;
+package com.nwo.libmanager.repository;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -2,8 +2,7 @@ package com.nwo.libmanager.repository;
 
 import com.nwo.libmanager.model.source.Books;
 import com.nwo.libmanager.model.target.Library;
-import com.nwo.libmanager.service.BooksConverter;
-import com.nwo.libmanager.service.SourceFileReader;
+import com.nwo.libmanager.bookservice.BooksConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 

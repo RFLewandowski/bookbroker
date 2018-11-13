@@ -1,4 +1,4 @@
-package com.nwo.libmanager.service;
+package com.nwo.libmanager.bookservice;
 
 import com.nwo.libmanager.model.source.Books;
 import com.nwo.libmanager.model.source.IndustryIdentifier;
@@ -9,7 +9,7 @@ import com.nwo.libmanager.model.target.Library;
 
 import java.util.List;
 
-import static com.nwo.libmanager.service.ArgMapper.*;
+import static com.nwo.libmanager.bookservice.ArgMapper.*;
 
 public class BooksConverter {
 
