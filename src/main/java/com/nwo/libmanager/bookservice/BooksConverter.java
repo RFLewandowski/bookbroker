@@ -24,50 +24,25 @@ public class BooksConverter {
         List<Item> sourceBooks = books.getItems();
 
         for (Item sourceBook : sourceBooks) {
-            Book bookToAdd = new Book();
-
             List<IndustryIdentifier> identifiers = sourceBook.getVolumeInfo().getIndustryIdentifiers();
-            String recordId = sourceBook.getId();
-            bookToAdd.setIsbn(mapIsbn(identifiers, recordId));
-
             VolumeInfo sourceVolumeInfo = sourceBook.getVolumeInfo();
-
-            String sourceTitle = sourceVolumeInfo.getTitle();
-            bookToAdd.setTitle(mapTitle(sourceTitle));
-
-            String sourceSubtitle = sourceVolumeInfo.getSubtitle();
-            bookToAdd.setSubtitle(mapSubtitle(sourceSubtitle));
-
-            String sourcePublisher = sourceVolumeInfo.getPublisher();
-            bookToAdd.setPublisher(mapPublisher(sourcePublisher));
-
-            String sourceDate = sourceVolumeInfo.getPublishedDate();
-            bookToAdd.setPublishedDate(mapPublishedDate(sourceDate));
-
-            String sourceDescription = sourceVolumeInfo.getDescription();
-            bookToAdd.setDescription(mapDescription(sourceDescription));
-
-            Integer sourcePageCount = sourceVolumeInfo.getPageCount();
-            bookToAdd.setPageCount(mapPageCount(sourcePageCount));
-
             String sourceThumbnailUrl = sourceVolumeInfo.getImageLinks().getThumbnail();
-            bookToAdd.setThumbnailUrl(mapThumbnailUrl(sourceThumbnailUrl));
-
-            String sourceLanguage = sourceVolumeInfo.getLanguage();
-            bookToAdd.setLanguage(mapLanguage(sourceLanguage));
-
-            String sourcePrevieLink = sourceVolumeInfo.getPreviewLink();
-            bookToAdd.setPreviewLink(mapPreviewLink(sourcePrevieLink));
-
-            Double sourceAverageRating = sourceVolumeInfo.getAverageRating();
-            bookToAdd.setAverageRating(mapAverageRating(sourceAverageRating));
-
-            List<String> sourceAuthors = sourceVolumeInfo.getAuthors();
-            bookToAdd.setAuthors(mapAuthors(sourceAuthors));
-
-            List<String> sourceCategories = sourceVolumeInfo.getCategories();
-            bookToAdd.setCategories(mapCategories(sourceCategories));
-
+            Book bookToAdd = Book
+                    .builder()
+                    .isbn(mapIsbn(identifiers, sourceBook.getId()))
+                    .title(mapTitle(sourceVolumeInfo.getTitle()))
+                    .subtitle(mapSubtitle(sourceVolumeInfo.getSubtitle()))
+                    .publisher(mapPublisher(sourceVolumeInfo.getPublisher()))
+                    .publishedDate(mapPublishedDate(sourceVolumeInfo.getPublishedDate()))
+                    .description(mapDescription(sourceVolumeInfo.getDescription()))
+                    .pageCount(mapPageCount(mapPageCount(sourceVolumeInfo.getPageCount())))
+                    .thumbnailUrl(mapThumbnailUrl(sourceThumbnailUrl))
+                    .language(mapLanguage(sourceVolumeInfo.getLanguage()))
+                    .previewLink(mapPreviewLink(sourceVolumeInfo.getPreviewLink()))
+                    .averageRating(mapAverageRating(sourceVolumeInfo.getAverageRating()))
+                    .authors(mapAuthors(sourceVolumeInfo.getAuthors()))
+                    .categories(mapCategories(sourceVolumeInfo.getCategories()))
+                    .build();
             library.getBooks().add(bookToAdd);
         }
         return library;
