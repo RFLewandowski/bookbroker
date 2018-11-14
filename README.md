@@ -29,6 +29,8 @@ After running app below urls will be accessible:<br>
 `http://localhost:8080/category/{categoryName}/books`<br>
 `http://localhost:8080/api/rating `<br>
 
+*You can check above endpoints using prepared postman* *[collection](../master/README.md)* (`\src\test\resources\LibManagerTestRequests.postman_collection.json`)
+
 
 <br>**Some design choices and assumptions**<br>
 * I assume that source file will be valid Json file.

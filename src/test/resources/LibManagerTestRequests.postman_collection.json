@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "5789a4af-f785-4e52-a6e1-7f76b3e3b1c5",
+		"name": "LibManagerTestRequests",
+		"description": "Collection to Test LibManagers Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get book by valid ISBN",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/book/9781592432172",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book",
+						"9781592432172"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get book by valid Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/book/gJEC2q7DzpQC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book",
+						"gJEC2q7DzpQC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check for not existing book",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/book/noSuchBook",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"book",
+						"noSuchBook"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get books with category: Computers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/category/Computers/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"category",
+						"Computers",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get books with category: Religion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/category/Religion/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"category",
+						"Religion",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get books with not existing category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/category/noSuchCategory/books",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"category",
+						"noSuchCategory",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get authors ratings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/rating",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"rating"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
