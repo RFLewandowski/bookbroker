@@ -14,10 +14,13 @@ public class TestResourceManager {
     }
 
     private static ResourceBundle rb = ResourceBundle.getBundle("test");
-    private static String smallTestJsonPath;
-    private static String bigTestJsonPath;
-    private static String toStringOfConvertedSmallTest;
-    private static String toStringOfConvertedBigTest;
+
+// It would be great if manager kept state of these Strings after start of server
+// but I don't want to use Spring for that (too heavy)
+//    private static String smallTestJsonPath;
+//    private static String bigTestJsonPath;
+//    private static String toStringOfConvertedSmallTest;
+//    private static String toStringOfConvertedBigTest;
 
     public static String getSmallTestJsonPath() {
         return rb.getString("smallTestJsonPath");

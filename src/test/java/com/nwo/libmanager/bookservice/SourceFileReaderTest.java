@@ -1,5 +1,6 @@
 package com.nwo.libmanager.bookservice;
 
+import com.nwo.libmanager.TestResourceManager;
 import com.nwo.libmanager.model.source.Books;
 import com.nwo.libmanager.repository.SourceFileReader;
 import org.junit.Test;
@@ -7,15 +8,13 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class SourceFileReaderTest {
-    private static final String SMALL_TEST_JSON_PATH = "src/test/resources/smallTestSource.json";
-    private static final String BIG_TEST_JSON_PATH = "src/test/resources/testSource.json";
 
     @Test
     public void Should_read_40_items() throws Exception {
         //Given
-        //
+        String testJsonPath = TestResourceManager.getBigTestJsonPath();
         // When
-        Books testBooks = SourceFileReader.readSource(BIG_TEST_JSON_PATH);
+        Books testBooks = SourceFileReader.readSource(testJsonPath);
         int noOfTestItems = testBooks.getItems().size();
         //Then
         assertEquals(noOfTestItems, 40);
@@ -24,9 +23,9 @@ public class SourceFileReaderTest {
     @Test
     public void Should_read_5_items() throws Exception {
         //Given
-        //
+        String testJsonPath = TestResourceManager.getSmallTestJsonPath();
         //When
-        Books testBooks = SourceFileReader.readSource(SMALL_TEST_JSON_PATH);
+        Books testBooks = SourceFileReader.readSource(testJsonPath);
         int noOfTestItems = testBooks.getItems().size();
         //Then
         assertEquals(noOfTestItems, 5);
