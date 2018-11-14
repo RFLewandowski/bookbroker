@@ -1,4 +1,4 @@
-package com.nwo.libmanager.bookservice;
+package com.nwo.libmanager.authorservice;
 
 import com.nwo.libmanager.authorservice.AuthorService;
 import com.nwo.libmanager.model.target.AuthorRating;

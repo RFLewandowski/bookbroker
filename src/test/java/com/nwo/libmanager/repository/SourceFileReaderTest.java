@@ -1,4 +1,4 @@
-package com.nwo.libmanager.bookservice;
+package com.nwo.libmanager.repository;
 
 import com.nwo.libmanager.TestResourceManager;
 import com.nwo.libmanager.model.source.Books;
