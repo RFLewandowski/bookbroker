@@ -19,4 +19,9 @@ After running app below urls will be accessible:<br>
 `http://localhost:8080/category/{categoryName}/books`<br>
 `http://localhost:8080/api/rating `<br>
 
+*You can check above endpoints using prepared postman*
+*[collection](../master/src/test/resources/LibManagerTestRequests.postman_collection.json)*
+(`\src\test\resources\LibManagerTestRequests.postman_collection.json`)<br>
+*Swagger is also enabled and can be reached under link:* *[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)*
+
 *For more details please check* *[README](../master/README.md)*

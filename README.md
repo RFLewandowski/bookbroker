@@ -31,7 +31,9 @@ After running app below urls will be accessible:<br>
 
 *You can check above endpoints using prepared postman* 
 *[collection](../master/src/test/resources/LibManagerTestRequests.postman_collection.json)* 
-(`\src\test\resources\LibManagerTestRequests.postman_collection.json`)
+(`\src\test\resources\LibManagerTestRequests.postman_collection.json`)<br>
+*Swagger is also enabled and can be reached under link:* *[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)*
+
 
 
 <br>**Some design choices and assumptions**<br>
@@ -43,8 +45,9 @@ After running app below urls will be accessible:<br>
 
 <br>**Technology stack**<br>
 * Tomcat - embedded in Spring 
-* Lombok
 * Spring boot
+* Lombok
+* Swagger
 * Jackson
 * Junit + MockMvc
 * Jsonschema2pojo (to generate source json model)
