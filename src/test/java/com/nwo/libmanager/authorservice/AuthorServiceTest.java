@@ -1,6 +1,5 @@
 package com.nwo.libmanager.authorservice;
 
-import com.nwo.libmanager.authorservice.AuthorService;
 import com.nwo.libmanager.model.target.AuthorRating;
 import com.nwo.libmanager.model.target.Book;
 import com.nwo.libmanager.model.target.Library;

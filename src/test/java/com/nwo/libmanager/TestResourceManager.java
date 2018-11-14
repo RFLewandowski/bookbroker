@@ -30,13 +30,20 @@ public class TestResourceManager {
         return rb.getString("bigTestJsonPath");
     }
 
+    public static String getToStringOfComputerCategoryBooksPath() {
+        return rb.getString("toStringOfComputerCategoryBooks");
+    }
+
     public static String getToStringOfConvertedSmallTest() {
         return getToStringFormFile(getToStringOfConvertedSmallTestPath());
     }
 
     public static String getToStringOfConvertedBigTest() {
         return getToStringFormFile(getToStringOfConvertedBigTestPath());
+    }
 
+    public static String getToStringOfComputerCategoryBooks() {
+        return getToStringFormFile(getToStringOfComputerCategoryBooksPath());
     }
 
     private static String getToStringOfConvertedSmallTestPath() {
