@@ -4,15 +4,12 @@ import com.nwo.bookbroker.model.target.Book;
 import com.nwo.bookbroker.bookservice.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/library")
 public class BookController {
 
     private final BookService bookService;
@@ -27,8 +24,8 @@ public class BookController {
         return bookService.getBookByIsbn(isbn).orElseThrow(BookNotFoundException::new);
     }
 
-    @GetMapping(value = "/category/{categoryName}/books", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Book> getBooksByCategory(@PathVariable("categoryName") String categoryName) {
+    @GetMapping(value = "/books", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Book> getBooksByCategory(@RequestParam("categoryName") String categoryName) {
         return bookService.getBooksByCategory(categoryName);
     }
 }

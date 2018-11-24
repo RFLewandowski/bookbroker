@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/library/author")
 public class AuthorController {
 
     private final AuthorService authorService;
@@ -21,7 +21,7 @@ public class AuthorController {
         this.authorService = authorService;
     }
 
-    @GetMapping(value = "/rating", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/ratings", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<AuthorRating> getAllAuthorsRatings() {
         return authorService.getAllAuthorsRatings();
     }

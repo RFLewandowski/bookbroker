@@ -36,7 +36,7 @@ public class BookControllerTest {
     @Test
     public void Should_GetBookByIsbn() throws Exception {
         this.mockMvc
-                .perform(get("/api/book/9781592432172"))
+                .perform(get("/library/book/9781592432172"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -46,7 +46,7 @@ public class BookControllerTest {
     @Test
     public void Should_GetBookByIsbnWhichIsActuallyId() throws Exception {
         this.mockMvc
-                .perform(get("/api/book/gJEC2q7DzpQC"))
+                .perform(get("/library/book/gJEC2q7DzpQC"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -56,7 +56,7 @@ public class BookControllerTest {
     @Test
     public void Should_NotFindBookSpecifiedWithIsbn() throws Exception {
         this.mockMvc
-                .perform(get("/api/book/ThereIsNoSuchBook"))
+                .perform(get("/library/book/ThereIsNoSuchBook"))
                 .andDo(print())
                 .andExpect(status().isNotFound())
                 .andExpect(status().reason(containsString("No results found")));
@@ -65,7 +65,7 @@ public class BookControllerTest {
     @Test
     public void Should_GetBooksByCategory() throws Exception {
         this.mockMvc
-                .perform(get("/api/category/Religion/books"))
+                .perform(get("/library/books?categoryName=Religion"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -75,7 +75,7 @@ public class BookControllerTest {
     @Test
     public void Should_CategoriesBeCaseSensitive_When_Getting() throws Exception {
         this.mockMvc
-                .perform(get("/api/category/ReLigiOn/books"))
+                .perform(get("/library/books?categoryName=ReLigiOn"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -85,7 +85,7 @@ public class BookControllerTest {
     @Test
     public void Should_ReturnEmpty_When_NoSuchCategory() throws Exception {
         this.mockMvc
-                .perform(get("/api/category/NoSuchCategory/books"))
+                .perform(get("/library/books?categoryName=NoSuchCategory"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))

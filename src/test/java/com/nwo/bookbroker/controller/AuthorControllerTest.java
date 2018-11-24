@@ -34,9 +34,9 @@ public class AuthorControllerTest {
     }
 
     @Test
-    public void Should_ReturnRatings() throws Exception { //whole logic tested in Library manager test
+    public void Should_ReturnRatings() throws Exception { //whole logic also tested in library manager test
         this.mockMvc
-                .perform(get("/api/rating"))
+                .perform(get("/library/author/ratings"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
