@@ -1,4 +1,4 @@
-## libmanager
+## bookbroker
 
 
 
@@ -10,7 +10,7 @@ jdk 8<br>
 
 <br>**Building**<br>
 *All below commands should be executed from root directory of project:<br>*
-` e.g.`<br>`C:\Users\HP\IdeaProjects\libmanager`
+` e.g.`<br>`C:\Users\HP\IdeaProjects\bookbroker`
 <br>
 <br>
 Set path to source json file location in:<br>
@@ -19,17 +19,17 @@ You need to have access to folder containing source file, and it need to be vali
 To build the app use following command:<br>
 `mvn clean package`<br>
 
-<br>**Running**<br>
+**Running**<br>
 After building the app run following command to start it:<br>
 `mvn spring-boot:run`
 
-<br>**Access**<br>
+**Access**<br>
 After running app below urls will be accessible:<br>
-`http://localhost:8080/api/book/{isbn}`<br>
-`http://localhost:8080/category/{categoryName}/books`<br>
-`http://localhost:8080/api/rating `<br>
+`http://localhost:8080/library/book/{isbn}`<br>
+`http://localhost:8080/library/books?categoryName={categoryName}`<br>
+`http://localhost:8080/library/author/ratings `<br>
 
-*In case of using source json: `src/test/resources/testSource.json` you can check above endpoints using prepared postman* 
+*In case of using source json: `src\test\resources\testSource.json` you can check above endpoints using prepared postman* 
 *[collection](../master/src/test/resources/LibManagerTestRequests.postman_collection.json)* 
 (`\src\test\resources\LibManagerTestRequests.postman_collection.json`)<br>
 *Swagger is also enabled and can be reached under link:* *[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)*
@@ -50,4 +50,4 @@ After running app below urls will be accessible:<br>
 * Swagger
 * Jackson
 * Junit + MockMvc
-* Jsonschema2pojo (to generate source json model)
+* Jsonschema2pojo (for generation of source json model)
